@@ -4,7 +4,7 @@
 
 .desktopOnly {
     display: block;
-    max-width: 60%;
+    width: 550px;
 }
 
 @media (max-width: 992px) {
