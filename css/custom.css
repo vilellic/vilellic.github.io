@@ -15,3 +15,36 @@
         display: none;
     }
 }
+
+.bg-primary {
+    background-color: #5c5f67!important;
+}
+
+.text-primary {
+    color: #ff6b6b!important;
+}
+
+body {
+    font-family: 'Open Sans',serif;
+    padding-top: 54px;
+    color: rgba(0,0,0,.9) !important;
+}
+
+.liame:before {
+	content: attr(data-website) "\0040" attr(data-user);
+	unicode-bidi: bidi-override;
+	direction: rtl;
+}
+
+.contactLogo {
+   width: 100px;
+   height: auto;
+}
+
+.mb-5, .my-5 {
+    margin-bottom: 2rem!important;
+}
+
+.lastParagraph {
+    margin-bottom: 2rem;
+}
