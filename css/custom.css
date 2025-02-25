@@ -56,3 +56,26 @@ body {
 .tss-link {
    margin-top: 20px;
 }
+
+.pic-container {
+    display: flex;
+    justify-content: flex-start; /* Aligns content to the left */
+    gap: 20px; /* Space between image and text */
+}
+
+.img-fluid {
+    max-width: 100%; /* Keeps the image responsive */
+    height: auto;
+}
+
+.text-content {
+    flex: 1; /* Allows the text section to take up remaining space */
+}
+
+/* Optional: Stack vertically on mobile */
+@media (max-width: 768px) {
+    .pic-container {
+        flex-direction: column;
+        text-align: left;
+    }
+}
