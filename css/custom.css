@@ -20,6 +20,15 @@
     background-color: #5c5f67!important;
 }
 
+.white-bg {
+    background-color: #ffffff;
+}
+
+.main-pic {
+    margin-left: -25px;
+    width: 750px;
+}
+
 .text-primary {
     color: #ff6b6b!important;
 }
