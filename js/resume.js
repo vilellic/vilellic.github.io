@@ -4,7 +4,7 @@
   // Height of the fixed top navbar in mobile view (excluding the open menu), 0 on desktop sidebar
   function navOffset() {
     if (window.innerWidth >= 992) return 0;
-    return $('#sideNav').outerHeight() - $('#sideNav .navbar-collapse').outerHeight();
+    return $('#sideNav').outerHeight() - ($('#sideNav .navbar-collapse:visible').outerHeight() || 0);
   }
 
   // Smooth scrolling using jQuery easing
@@ -26,10 +26,19 @@
     $('.navbar-collapse').collapse('hide');
   });
 
-  // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#sideNav',
-    offset: navOffset() + 10
-  });
+  // Activate scrollspy to add active class to navbar items on scroll.
+  // Re-create it when the navbar height changes (mobile <-> desktop layout).
+  var spyOffset = null;
+  function initScrollspy() {
+    var offset = navOffset() + 10;
+    if (offset === spyOffset) return;
+    spyOffset = offset;
+    $('body').scrollspy('dispose').scrollspy({
+      target: '#sideNav',
+      offset: offset
+    });
+  }
+  initScrollspy();
+  $(window).on('resize orientationchange', initScrollspy);
 
 })(jQuery); // End of use strict
