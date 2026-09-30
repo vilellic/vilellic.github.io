@@ -91,11 +91,6 @@ a:hover, a:focus {
 }
 
 /* Mobile menu: no height animation (it stutters), just a quick fade-in of the links */
-#sideNav .collapsing {
-    transition: none;
-}
-
-#sideNav .navbar-collapse.collapsing .navbar-nav,
 #sideNav .navbar-collapse.show .navbar-nav {
     animation: nav-fade-in .18s ease-out;
 }
@@ -112,7 +107,6 @@ a:hover, a:focus {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    #sideNav .navbar-collapse.collapsing .navbar-nav,
     #sideNav .navbar-collapse.show .navbar-nav {
         animation: none;
     }

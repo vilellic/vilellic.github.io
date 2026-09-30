@@ -32,9 +32,21 @@
     }
   });
 
+  // Mobile menu toggle. A plain class toggle instead of Bootstrap's collapse plugin,
+  // which ignores a close request while it is still opening and leaves the menu open.
+  var $menu = $('#navbarSupportedContent');
+  var $toggler = $('#sideNav .navbar-toggler');
+  function setMenuOpen(open) {
+    $menu.toggleClass('show', open);
+    $toggler.toggleClass('collapsed', !open).attr('aria-expanded', open ? 'true' : 'false');
+  }
+  $toggler.click(function() {
+    setMenuOpen(!$menu.hasClass('show'));
+  });
+
   // Closes responsive menu when a scroll trigger link is clicked
   $('.js-scroll-trigger').click(function() {
-    $('.navbar-collapse').collapse('hide');
+    setMenuOpen(false);
   });
 
   // Activate scrollspy to add active class to navbar items on scroll.
