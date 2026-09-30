@@ -78,7 +78,6 @@ a:hover, a:focus {
     font-size: .98rem;
     padding: .6rem .9rem;
     border-radius: 10px;
-    transition: background-color .15s, color .15s;
 }
 
 #sideNav .nav-link:hover {
@@ -89,6 +88,34 @@ a:hover, a:focus {
 #sideNav .nav-link.active {
     background: var(--accent);
     color: #fff;
+}
+
+/* Mobile menu: no height animation (it stutters), just a quick fade-in of the links */
+#sideNav .collapsing {
+    transition: none;
+}
+
+#sideNav .navbar-collapse.collapsing .navbar-nav,
+#sideNav .navbar-collapse.show .navbar-nav {
+    animation: nav-fade-in .18s ease-out;
+}
+
+@keyframes nav-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #sideNav .navbar-collapse.collapsing .navbar-nav,
+    #sideNav .navbar-collapse.show .navbar-nav {
+        animation: none;
+    }
 }
 
 #sideNav .navbar-toggler {

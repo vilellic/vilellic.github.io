@@ -7,15 +7,26 @@
     return $('#sideNav').outerHeight() - ($('#sideNav .navbar-collapse:visible').outerHeight() || 0);
   }
 
+  // Scroll animation length; no animation if the user prefers reduced motion
+  function scrollDuration() {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 500;
+  }
+
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
       if (target.length) {
-        $('html, body').animate({
+        // Highlight the clicked item right away and pause scrollspy during the animation,
+        // so the highlight doesn't run through the sections in between
+        $('body').scrollspy('dispose');
+        spyOffset = null;
+        $('#sideNav .nav-link').removeClass('active')
+          .filter('[href="' + this.hash + '"]').addClass('active');
+        $('html, body').stop().animate({
           scrollTop: (target.offset().top - navOffset())
-        }, 1000, "easeInOutExpo");
+        }, scrollDuration(), "easeInOutCubic").promise().done(initScrollspy);
         return false;
       }
     }
