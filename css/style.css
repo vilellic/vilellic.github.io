@@ -1,0 +1,559 @@
+/* Kanta-Tulkkaus Oy – moderni teema */
+
+:root {
+    --ink: #1f2a37;
+    --text: #3d4755;
+    --muted: #5b6573;
+    --accent: #2b6386;
+    --accent-dark: #1d4e6b;
+    --brand-soft: #dbe9f1;
+    --surface: #f4f8fb;
+    --sidebar: #eef4f8;
+    --line: #e2e9ef;
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(31, 42, 55, .04), 0 8px 24px rgba(31, 42, 55, .06);
+    --sidebar-w: 17rem;
+    --nav-h: 68px;
+}
+
+html {
+    scroll-behavior: auto;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text);
+    background: #fff;
+    padding-top: var(--nav-h);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    color: var(--ink);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+a {
+    color: var(--accent);
+}
+
+a:hover, a:focus {
+    color: var(--accent-dark);
+}
+
+/* ---------- Navigaatio ---------- */
+
+#sideNav {
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    padding: .5rem 1rem;
+}
+
+#sideNav .navbar-brand {
+    padding: 0;
+}
+
+.brand-mobile {
+    height: 50px;
+    width: auto;
+}
+
+.brand-desktop,
+.nav-contact {
+    display: none;
+}
+
+#sideNav .navbar-nav {
+    padding: .5rem 0 .75rem;
+}
+
+#sideNav .nav-link {
+    color: var(--text);
+    font-weight: 600;
+    font-size: .98rem;
+    padding: .6rem .9rem;
+    border-radius: 10px;
+    transition: background-color .15s, color .15s;
+}
+
+#sideNav .nav-link:hover {
+    background: var(--brand-soft);
+    color: var(--ink);
+}
+
+#sideNav .nav-link.active {
+    background: var(--accent);
+    color: #fff;
+}
+
+#sideNav .navbar-toggler {
+    border: 0;
+    padding: .4rem .5rem;
+}
+
+#sideNav .navbar-toggler:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 0;
+        padding-left: var(--sidebar-w);
+    }
+
+    #sideNav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: var(--sidebar-w);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 2.5rem 1.5rem 2rem;
+        background: var(--sidebar);
+        border-bottom: 0;
+        border-right: 1px solid var(--line);
+    }
+
+    #sideNav .navbar-brand {
+        margin: 0 auto 2.5rem;
+    }
+
+    .brand-mobile {
+        display: none;
+    }
+
+    .brand-desktop {
+        display: block;
+        width: 11rem;
+        height: auto;
+    }
+
+    #sideNav .navbar-collapse {
+        flex-direction: column;
+        align-items: stretch;
+        flex-grow: 1;
+        width: 100%;
+    }
+
+    #sideNav .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        gap: .25rem;
+    }
+
+    #sideNav .nav-link {
+        padding: .65rem 1rem;
+    }
+
+    .nav-contact {
+        display: block;
+        margin-top: auto;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--line);
+        font-size: .9rem;
+        line-height: 1.5;
+    }
+
+    .nav-contact a {
+        display: flex;
+        align-items: center;
+        gap: .6rem;
+        color: var(--text);
+        padding: .35rem 0;
+        text-decoration: none;
+        word-break: break-all;
+    }
+
+    .nav-contact a:hover {
+        color: var(--accent);
+    }
+
+    .nav-contact .fa {
+        width: 1rem;
+        color: var(--accent);
+        text-align: center;
+    }
+}
+
+/* ---------- Osiot ---------- */
+
+.section {
+    padding: 4rem 1.25rem;
+    scroll-margin-top: var(--nav-h);
+}
+
+.section:nth-of-type(even) {
+    background: var(--surface);
+}
+
+.section-inner {
+    max-width: 58rem;
+}
+
+.section h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .75rem;
+}
+
+.lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text);
+    max-width: 44rem;
+}
+
+@media (min-width: 992px) {
+    .section {
+        padding: 6rem 4.5rem;
+        scroll-margin-top: 0;
+    }
+}
+
+/* ---------- Hero ja palvelut ---------- */
+
+.hero {
+    padding-top: 3rem;
+}
+
+.hero h1 {
+    font-size: clamp(2.6rem, 7vw, 4.5rem);
+    margin-bottom: 1rem;
+}
+
+.hero-person {
+    font-size: 1.15rem;
+    color: var(--muted);
+    margin-bottom: 1.75rem;
+}
+
+.hero-person strong {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.badge-kela {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: var(--brand-soft);
+    color: var(--accent-dark);
+    font-weight: 600;
+    font-size: .9rem;
+    padding: .4rem .9rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+}
+
+.btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+}
+
+.btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: .8rem 1.4rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--accent);
+    text-decoration: none;
+    transition: background-color .15s, color .15s, border-color .15s, transform .15s;
+}
+
+.btn-pill:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.btn-primary-pill {
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn-primary-pill:hover, .btn-primary-pill:focus {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+    color: #fff;
+}
+
+.btn-ghost-pill {
+    background: #fff;
+    color: var(--accent);
+}
+
+.btn-ghost-pill:hover, .btn-ghost-pill:focus {
+    background: var(--brand-soft);
+    color: var(--accent-dark);
+}
+
+.section .services-title {
+    font-size: 1.35rem;
+    margin: 3.5rem 0 1.25rem;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-card {
+    display: flex;
+    align-items: center;
+    gap: .85rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.35;
+    box-shadow: var(--shadow);
+}
+
+.service-icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 12px;
+    background: var(--brand-soft);
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.service-icon .material-symbols-rounded {
+    font-size: 1.6rem;
+}
+
+.service-name {
+    min-width: 0;
+    overflow-wrap: break-word;
+    hyphens: manual;
+}
+
+@media (max-width: 400px) {
+    .service-card {
+        gap: .75rem;
+        padding: 1rem;
+    }
+}
+
+.meta-text {
+    margin-top: 2rem;
+    font-size: .9rem;
+    color: var(--muted);
+}
+
+/* ---------- Tietoa yrityksestä ---------- */
+
+.profiles {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.profile {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
+}
+
+.profile img {
+    width: 100%;
+    max-width: 22rem;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: calc(var(--radius) - 6px);
+}
+
+.profile h3 {
+    font-size: 1.5rem;
+    margin: .25rem 0 .75rem;
+}
+
+.profile p:last-child {
+    margin-bottom: 0;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+}
+
+.chips li {
+    background: var(--brand-soft);
+    color: var(--accent-dark);
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .25rem .75rem;
+    border-radius: 999px;
+}
+
+.closing {
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--ink);
+}
+
+@media (min-width: 768px) {
+    .profile {
+        grid-template-columns: 15rem 1fr;
+        align-items: start;
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+}
+
+/* ---------- Yhteystiedot ---------- */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.contact-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.contact-card h3 {
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .5rem;
+}
+
+.contact-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+    word-break: break-word;
+}
+
+a.contact-value:hover {
+    color: var(--accent);
+}
+
+/* ---------- Kunnioittava tunnustus ---------- */
+
+/* Viimeinen osio riittävän korkeaksi, jotta valikon korostus osuu siihen */
+#kunnioittava-tunnustus {
+    min-height: calc(100vh - var(--nav-h));
+}
+
+@media (min-width: 992px) {
+    #kunnioittava-tunnustus {
+        min-height: 100vh;
+    }
+}
+
+.tunnustus-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.tunnustus-logo {
+    width: 360px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.tunnustus-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.tunnustus-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: .4rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.tunnustus-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .55em;
+    width: .7rem;
+    height: .7rem;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.tunnustus-list li:nth-child(2)::before {
+    background: #06a8b0;
+}
+
+.tunnustus-list li:nth-child(3)::before {
+    background: #e2a022;
+}
+
+/* ---------- Alatunniste ---------- */
+
+.site-footer {
+    padding: 2rem 1.25rem;
+    border-top: 1px solid var(--line);
+    font-size: .875rem;
+    color: var(--muted);
+}
+
+@media (min-width: 992px) {
+    .site-footer {
+        padding: 2rem 4.5rem;
+    }
+}
