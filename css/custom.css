@@ -92,3 +92,15 @@ body {
 .img-mobile-logo {
     height: 74px;
 }
+.tunnustus-logo {
+    width: 360px;
+    margin-bottom: 1.5rem;
+}
+
+.tunnustus-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+}
