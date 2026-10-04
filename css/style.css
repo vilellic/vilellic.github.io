@@ -553,15 +553,15 @@ a.contact-value:hover {
     width: .7rem;
     height: .7rem;
     border-radius: 50%;
-    background: var(--accent);
+    background: #3698ff;
 }
 
 .tunnustus-list li:nth-child(2)::before {
-    background: #06a8b0;
+    background: #00cdd0;
 }
 
 .tunnustus-list li:nth-child(3)::before {
-    background: #e2a022;
+    background: #f5a92c;
 }
 
 /* ---------- Alatunniste ---------- */
